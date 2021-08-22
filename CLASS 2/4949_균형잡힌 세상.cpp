@@ -3,7 +3,9 @@
 using namespace std;
 
 int main(){
-    
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+
     while (true)
     {
         string s;
@@ -23,29 +25,29 @@ int main(){
             }
             else if (s[i]==')')
             {
-                if (st.top()=='(')
+                if (st.empty() || st.top()!='(')
                 {
-                    st.pop();
+                    ans="no"; break;
                 }
-                else {ans = "no"; break;}
+                else st.pop();
             }
             else if (s[i]==']')
             {
-                if (st.top()=='[')
+                if (st.empty() || st.top()!='[')
                 {
-                    st.pop();
+                    ans = "no"; break;
                 }
-                
+                else st.pop();
             }
-            
-            
-            
         }
+
+        if (!st.empty())
+        {
+            ans = "no";
+        }
+        
         cout<<ans<<"\n";
     }
-    
-
-
 
     return 0;
 }
