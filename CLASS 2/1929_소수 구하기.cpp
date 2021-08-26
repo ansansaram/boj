@@ -4,7 +4,8 @@ int main() {
 	int M, N;
 	cin >> M >> N;
 
-	int *X = new int[N + 1]{ 0 };
+	int *X = new int[N + 1];
+	fill_n(X, N+1, 0);
 
 	for (int i = 2; i < N+1; i++)
 	{
